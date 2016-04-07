@@ -4,7 +4,23 @@ var AppStore = require('../stores/AppStore');
 
 var AppForm = React.createClass({
     render : function(){
-        
+        return(
+            <div className="well">
+                <h3>Add Contact</h3>
+				<form onSubmit={this.handleSubmit}>
+					<div className="form-group">
+						<input type="text" ref="name" className="form-control" placeholder="Add Name..." />
+					</div>	
+					<div className="form-group">
+						<input type="text" ref="phone" className="form-control" placeholder="Add Phone..." />
+					</div>	
+					<div className="form-group">
+						<input type="text" ref="email" className="form-control" placeholder="Add Email..." />
+					</div>	
+					<button type="submit" className="btn btn-primary">Submit</button>
+				</form>
+            </div>    
+        );
     },
     
     handleSubmit : function(e){

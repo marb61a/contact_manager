@@ -31,6 +31,18 @@ var AppStore = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function(payload){
     var action = payload.action;
     switch (action.actionType) {
+        case AppConstants.SAVE_CONTACT:
+            console.log('Saving Contact...');
+            // Store save
+            AppStore.saveContact(action.contact);
+            // Emit Change
+            AppStore.emit(CHANGE_EVENT);
+            break;
+        case AppConstants.RECEIVE_CONTACTS:
+            console.log('Receiving Contacts...');
+			//Emit Change
+			AppStore.emit(CHANGE_EVENT);
+			break;
         
     }
     
