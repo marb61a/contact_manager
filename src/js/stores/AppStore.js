@@ -2,13 +2,19 @@ var AppDispatcher = require("../dispatcher/AppDispatcher");
 var AppConstants = require("../constants/AppConstants");
 var EventEmitter = require("events").EventEmitter;
 var assign = require("object-assign");
-var appAPI = require('../utils/AppAPI.js');
+var appAPI = require('../utils/appAPI.js');
 
 var CHANGE_EVENT = 'change';
 
-var _items = [];
+var _contacts = [];
 
 var AppStore = assign({}, EventEmitter.prototype, {
+    getContacts: function(){
+		return _contacts;
+	},
+	saveContact: function(contact){
+		_contacts.push(contact);
+	},
     emitChange : function(){
         this.emit(CHANGE_EVENT);  
     },
