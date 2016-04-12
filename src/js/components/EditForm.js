@@ -21,6 +21,26 @@ var EditForm = React.createClass({
                 </form>
             </div>
         );
+    },
+    
+    handleChange : function(fieldName, event){
+        var newState = event.target.value;
+		var selected = this.state.selected;
+		selected.name = newState;
+		this.setState({selected: selected});
+    },
+    
+    handleSubmit : function(e){
+        e.preventDefault();
+        
+        var contact = {
+			id: this.props.contactToEdit.id,
+			name: this.refs.name.value.trim(),
+			phone: this.refs.phone.value.trim(),
+			email: this.refs.email.value.trim()
+		};
+
+		AppActions.updateContact(contact);
     }
 });
 

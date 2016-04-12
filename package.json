@@ -11,12 +11,13 @@
     "url": "git+https://github.com/marb61a/contact_manager.git"
   },
   "devDependencies": {
+    "browser-sync": "^2.12.1",
     "browserify": "*",
     "flux": "*",
-    "gulp": "*",
+    "gulp": "^3.9.1",
+    "object-assign": "*",
     "reactify": "*",
-    "vinyl-source-stream": "*",
-    "object-assign": "*"
+    "vinyl-source-stream": "*"
   },
   "dependencies": {
     "firebase": "^2.4.2",
