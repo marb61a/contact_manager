@@ -21,6 +21,28 @@ var AppStore = assign({}, EventEmitter.prototype, {
 		_contacts = contacts;
 	},
 	
+	removeContact : function(contactId){
+	    var index = contacts.findIndex(x => x.id === contactId);
+	    _contacts.splice(index, 1);
+	},
+	
+	setContactToEdit : function(contact){
+	    _contact_to_edit = contact;
+	},
+	
+	getContactToEdit : function(){
+	    return _contact_to_edit;
+	},
+	
+	updateContact : function(contact){
+	    for(i = 0; i < contacts.length; i++){
+	        if(_contacts[i].id == contact.id){
+	            _contacts.splice(i, 1);
+				_contacts.push(contact);
+	        }
+	    }
+	},
+	
     emitChange : function(){
         this.emit(CHANGE_EVENT);  
     },
